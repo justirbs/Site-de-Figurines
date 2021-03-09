@@ -6,75 +6,83 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<div id="presentation">
-		  <h1>Présentation</h1>
-		  <p>Toutes les figurines coûtent 25€ sans accessoires</p>
-		  <p>Un accessoire coute 5€</p>
-		  <p>Cliquez sur l'image pour la supprimer du panier</p>
-		</div>
-		<div id="panier">
-		  
-		  <form action="infomationLivraison.html" >
-			<input type="submit" value="valider Panier" >
-		  </form>
-		<div id="mesImages"></div>
-		</div>
-	  
-		<div id="magasinChapeau">
-			<h3>Mes chapeaux</h3>
-			<img alt="chapeau1" id="imageChap" src="img/chapeau1.png">
-			<img alt="chapeau2" id="imageChap" src="img/chapeau2.png">
-			<img alt="chapeau3" id="imageChap" src="img/chapeau3.png">
-			<img alt="chapeau4" id="imageChap" src="img/chapeau4.png">
-			<img alt="chapeau5" id="imageChap" src="img/chapeau5.png">
-			<img alt="chapeau6" id="imageChap" src="img/chapeau6.png">
+		<div class="header">
+			<div id="presentation">
+			  <h1>Présentation</h1>
+			  <p>Toutes les figurines coûtent 25€ sans accessoires</p>
+			  <p>Un accessoire coute 5€</p>
+			  <p>Cliquez sur l'image pour la supprimer du panier</p>
+			</div>
+
+			<div id="panier">
+			  <form action="infomationLivraison.html" >
+				<input type="submit" value="valider Panier" >
+			  </form>
+
+				<div id="mesImages"></div>
+
+			</div>
 		</div>
 
-		<div id="magasinVetementHaut">
-			<h3>Mes vetementHauts</h3>
-			<img alt="vetementHaut1" id="imageHaut" src="img/vetementHaut1.png">
-			<img alt="vetementHaut2" id="imageHaut" src="img/vetementHaut2.png">
-			<img alt="vetementHaut3" id="imageHaut" src="img/vetementHaut3.png">
-			<img alt="vetementHaut4" id="imageHaut" src="img/vetementHaut4.png">
-			<img alt="vetementHaut5" id="imageHaut" src="img/vetementHaut5.png">
-			<img alt="vetementHaut6" id="imageHaut" src="img/vetementHaut6.png">
+		<div class="page">
+
+			<div class="magasins">
+
+				<div id="magasinChapeau">
+					<h3>Mes chapeaux</h3>
+					<img alt="chapeau1" id="imageChap" src="img/chapeau1.png">
+					<img alt="chapeau2" id="imageChap" src="img/chapeau2.png">
+					<img alt="chapeau3" id="imageChap" src="img/chapeau3.png">
+					<img alt="chapeau4" id="imageChap" src="img/chapeau4.png">
+					<img alt="chapeau5" id="imageChap" src="img/chapeau5.png">
+					<img alt="chapeau6" id="imageChap" src="img/chapeau6.png">
+				</div>
+
+				<div id="magasinVetementHaut">
+					<h3>Mes vetementHauts</h3>
+					<img alt="vetementHaut1" id="imageHaut" src="img/vetementHaut1.png">
+					<img alt="vetementHaut2" id="imageHaut" src="img/vetementHaut2.png">
+					<img alt="vetementHaut3" id="imageHaut" src="img/vetementHaut3.png">
+					<img alt="vetementHaut4" id="imageHaut" src="img/vetementHaut4.png">
+					<img alt="vetementHaut5" id="imageHaut" src="img/vetementHaut5.png">
+					<img alt="vetementHaut6" id="imageHaut" src="img/vetementHaut6.png">
+				</div>
+
+				<div id="magasinVetementBas">
+					<h3>Mes vetementBas</h3>
+					<img alt="vetementBas1" id="imageBas" src="img/vetementBas1.png">
+					<img alt="vetementBas2" id="imageBas" src="img/vetementBas2.png">
+					<img alt="vetementBas3" id="imageBas" src="img/vetementBas3.png">
+					<img alt="vetementBas4" id="imageBas" src="img/vetementBas4.png">
+					<img alt="vetementBas5" id="imageBas" src="img/vetementBas5.png">
+					<img alt="vetementBas6" id="imageBas" src="img/vetementBas6.png">
+				</div>
+
+				<div id="magasinChaussure">
+					<h3>Mes chaussures</h3>
+					<img alt="chaussure1" id="imageChaussure" src="img/chaussure1.png">
+					<img alt="chaussure2" id="imageChaussure" src="img/chaussure2.png">
+					<img alt="chaussure3" id="imageChaussure" src="img/chaussure3.png">
+					<img alt="chaussure4" id="imageChaussure" src="img/chaussure4.png">
+					<img alt="chaussure5" id="imageChaussure" src="img/chaussure5.png">
+					<img alt="chaussure6" id="imageChaussure" src="img/chaussure6.png">
+				</div>
+			</div>
+
+
+
+			<div id="choix">
+			  <h3>Ma figurine</h3>
+			  <input type="button" value="ajouterFigurine" onclick="ajouterFigurine()">
+			  <div id="choixChapeau"></div>
+	 		  <div id="choixHaut"></div>
+			  <div id="choixBas"></div>
+	          <div id="choixChaussure"></div>
+	          <div id="choixArme"></div>
+
+			</div>
 		</div>
 
-		<div id="magasinVetementBas">
-			<h3>Mes vetementBas</h3>
-			<img alt="vetementBas1" id="imageBas" src="img/vetementBas1.png">
-			<img alt="vetementBas2" id="imageBas" src="img/vetementBas2.png">
-			<img alt="vetementBas3" id="imageBas" src="img/vetementBas3.png">
-			<img alt="vetementBas4" id="imageBas" src="img/vetementBas4.png">
-			<img alt="vetementBas5" id="imageBas" src="img/vetementBas5.png">
-			<img alt="vetementBas6" id="imageBas" src="img/vetementBas6.png">
-		</div>
-		
-		<div id="magasinChaussure">
-			<h3>Mes chaussures</h3>
-			<img alt="chaussure1" id="imageChaussure" src="img/chaussure1.png">
-			<img alt="chaussure2" id="imageChaussure" src="img/chaussure2.png">
-			<img alt="chaussure3" id="imageChaussure" src="img/chaussure3.png">
-			<img alt="chaussure4" id="imageChaussure" src="img/chaussure4.png">
-			<img alt="chaussure5" id="imageChaussure" src="img/chaussure5.png">
-			<img alt="chaussure6" id="imageChaussure" src="img/chaussure6.png">
-		</div>
-
-
-
-
-		<div id="choix">
-		  <h3>Ma figurine</h3>
-		  <input type="button" value="ajouterFigurine" onclick="ajouterFigurine()">
-		  <div id="choixChapeau"></div>
- 		  <div id="choixHaut"></div>
-		  <div id="choixBas"></div>
-          <div id="choixChaussure"></div>
-          <div id="choixArme"></div>
-		  
-		</div>
-		
-		
 		<script type="text/javascript" src="tpnote.js"></script>
 	</body>
 </html>

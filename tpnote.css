@@ -2,3 +2,95 @@ body{
 background-color: #e5e5e5 ;
 }
 
+.header {
+  display: inline-flex;
+  width: 100%;
+}
+
+.page {
+  display: inline-flex;
+  width: 100%;
+}
+
+.magasins {
+  width: 100%;
+}
+
+#presentation {
+  text-align: center;
+  border: 3px solid black;
+  width: 100%;
+  margin-bottom:1%;
+  background-color: #343a40 ;
+  font-weight: bold;
+  font-size: 10pt;
+  color: white;
+}
+
+#panier {
+  text-align: center;
+  border: 3px solid black;
+  width: 100%;
+  margin-left: 10%;
+  margin-bottom:1%;
+  background-color: #343a40 ;
+  font-weight: bold;
+  font-size: 10pt;
+  color: white;
+}
+
+#magasinChapeau {
+  text-align: center;
+  border: 3px solid black;
+  margin-bottom:1%;
+  background-color: #343a40 ;
+  font-weight: bold;
+  font-size: 10pt;
+  color: white;
+}
+
+#magasinVetementHaut {
+  text-align: center;
+  border: 3px solid black;
+  margin-bottom:1%;
+  background-color: #343a40 ;
+  font-weight: bold;
+  font-size: 10pt;
+  color: white;
+}
+
+#magasinVetementBas {
+  text-align: center;
+  border: 3px solid black;
+  margin-bottom:1%;
+  background-color: #343a40 ;
+  font-weight: bold;
+  font-size: 10pt;
+  color: white;
+}
+
+#magasinChaussure {
+  text-align: center;
+  border: 3px solid black;
+  margin-bottom:1%;
+  background-color: #343a40 ;
+  font-weight: bold;
+  font-size: 10pt;
+  color: white;
+}
+
+#choix {
+  text-align: center;
+  border: 3px solid black;
+  width: 100%;
+  margin-left: 10%;
+  margin-bottom:1%;
+  background-color: #343a40 ;
+  font-weight: bold;
+  font-size: 10pt;
+  color: white;
+}
+
+img {
+  width: 100px;
+}
