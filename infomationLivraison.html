@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Mon mini pop moi</title>
-		<link rel="stylesheet" type="text/css" href="tpnote.css" />
+		<title>My pokémon POP</title>
+		<link rel="stylesheet" type="text/css" href="css/infomationLivraison.css" />
 		<meta charset="utf-8">
+		<link rel="icon" type="image/png" href="./img/icon.png">
 	</head>
 	<body>
 
+		<div class="formulaire">
+			<form id="formulaire" method="get" action="validationLivraison.html">
+				<p>Nom<input type="text" id="nom" name="nom" oninput="verifierFormulaire()"/></p>
+				<p>Prénom<input type="text" id="prenom" name="prenom" oninput="verifierFormulaire()"/></p>
+				<p>Adresse<input type="text" id="adresse" name="adresse" oninput="verifierFormulaire()"/></p>
+				<input type="submit" value="Valider" id="boutonValider" style="visibility: hidden;"/>
+			</form>
+		</div>
 
+	<script type="text/javascript" src="js/infomationLivraison.js"></script>
 	</body>
 </html>

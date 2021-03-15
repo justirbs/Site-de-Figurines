@@ -132,3 +132,14 @@ function supprimerFigurine(figurine) {
    document.getElementById("mesFigurines").removeChild(figurine);
  }
 }
+
+/* Fonction qui vérifie si on peut valider le panier */
+function validerPanier() {
+  // on vérifie que le panier n'est pas vide
+  if(valeurPanier != 0){
+    // on change de page html pour remplir les informations sur la livraison
+    document.location.href="infomationLivraison.html";
+  } else {
+    alert("Vous ne pouvez pas valider un panier vide !");
+  }
+}

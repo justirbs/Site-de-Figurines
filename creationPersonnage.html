@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>My Pokémon POP</title>
-		<link rel="stylesheet" type="text/css" href="tpnote.css" />
+		<link rel="stylesheet" type="text/css" href="css/creationPersonnage.css" />
 		<meta charset="utf-8">
 		<link rel="icon" type="image/png" href="./img/icon.png">
 	</head>
@@ -22,9 +22,10 @@
 
 			<div id="panier">
 				<h2 id="valeurPanier">Valeur du Panier : 0 €</h2>
-			  <form action="infomationLivraison.html" >
-				<input type="submit" value="valider Panier" >
-			  </form>
+
+				<div id="boutonValider">
+					<input type="button" value="valider Panier" onclick="validerPanier()">
+				</div>
 
 				<div id="mesFigurines"></div>
 
@@ -90,6 +91,6 @@
 			</div>
 		</div>
 
-		<script type="text/javascript" src="tpnote.js"></script>
+		<script type="text/javascript" src="js/creationPersonnage.js"></script>
 	</body>
 </html>
