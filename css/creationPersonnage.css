@@ -46,7 +46,7 @@ background-color: #343a40;
   border-radius: 10px;
 }
 
-#magasinVetementHaut {
+#magasinHaut {
   text-align: center;
   margin-bottom:1%;
   background-color: rgba(229, 229, 229, 0.5);
@@ -54,7 +54,7 @@ background-color: #343a40;
   border-radius: 10px;
 }
 
-#magasinVetementBas {
+#magasinBas {
   text-align: center;
   margin-bottom:1%;
   background-color: rgba(229, 229, 229, 0.5);
@@ -89,13 +89,19 @@ img {
 
 input {
   margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: #343a40;
+  color: lightgrey;
+  border: none;
+  cursor: pointer;
+  padding: 12px 28px;
 }
 
 #mesFigurines {
   display : inline-flex;
 }
 
-#figurine {
+.mesFigurines p {
   margin-left: 5px;
   margin-right: 5px;
 }

@@ -1,4 +1,4 @@
-var nbFig = 0; // nombre de figurine dans le panier
+var figurines = []; // tableau qui contient toutes les figurines
 var valeurPanier = 0; // valeur du panier
 
 /* Fonction pour ajouter un attribut onclick */
@@ -13,30 +13,11 @@ function ajouterOnClick(magasin, fonction) {
 /* Fonction pour ajouter un article dans les "choix" */
 function ajouter(image) {
   var nvImage = image.cloneNode(true); // image clonée
-  var idDest; // id du div où l'on veut déplacer l'image
-  var idInit; // id du div d'où vient l'image
   nvImage.setAttribute("onclick", "retirer(this)");
-  switch(nvImage.getAttribute("id")) {
-    case "imageChap" :
-      idDest = "choixChapeau";
-      idInit = "magasinChapeau";
-      break;
-    case "imageHaut" :
-      idDest = "choixHaut";
-      idInit = "magasinVetementHaut";
-      break;
-    case "imageBas" :
-      idDest = "choixBas";
-      idInit = "magasinVetementBas";
-      break;
-    case "imageChaussure" :
-      idDest = "choixChaussure";
-      idInit = "magasinChaussure";
-      break;
-    default :
-      console.log("Error id image");
-      break;
-  }
+  // id du div où l'on veut déplacer l'image
+  var idDest = "choix" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length);
+  // id du div d'où vient l'image
+  var idInit = "magasin" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length);
   document.getElementById(idDest).appendChild(nvImage);
   document.getElementById(idInit).removeChild(image);
   // on modifie l'attribu onclick des autres articles du magasin pour qu'on ne puisse pas en ajouter d'autres
@@ -46,30 +27,11 @@ function ajouter(image) {
 /* Fonction pour retirer un articles de "choix" */
 function retirer(image) {
   var nvImage = image.cloneNode(true); // image clonée
-  var idDest; // id du div où l'on veut déplacer l'image
-  var idInit; // id du div d'où vient l'image
   nvImage.setAttribute("onclick", "ajouter(this)");
-  switch(nvImage.getAttribute("id")) {
-    case "imageChap" :
-      idInit = "choixChapeau";
-      idDest = "magasinChapeau";
-      break;
-    case "imageHaut" :
-      idInit = "choixHaut";
-      idDest = "magasinVetementHaut";
-      break;
-    case "imageBas" :
-      idInit = "choixBas";
-      idDest = "magasinVetementBas";
-      break;
-    case "imageChaussure" :
-      idInit = "choixChaussure";
-      idDest = "magasinChaussure";
-      break;
-    default :
-      console.log("Error id image");
-      break;
-  }
+  // id du div où l'on veut déplacer l'image
+  var idDest = "magasin" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length);
+  // id du div d'où vient l'image
+  var idInit = "choix" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length);
   document.getElementById(idDest).appendChild(nvImage);
   document.getElementById(idInit).removeChild(image);
   // on modifie l'attribu onclick des autres articles du magasins pour pouvoir les ajouter à nouveau
@@ -78,43 +40,30 @@ function retirer(image) {
 
 /* Fonction pour ajouter une figurine au panier */
 function ajouterFigurine() {
-  var estValide = 0; // pour vérifier si une figurine est valide : n'est pas vide
+  estValide = 0; // variable qui indique si la figurine est vide ou non
   var prix = 25; // le prix de la figurine (il vaut initialement 25€)
-
-  // Pour chaque catégorie (chapeau, ...) on vérifie si le contenu du div n'est pas nul, on indique alors si la figurine est valide, on augmente le prix et on remet les articles dans la boutique
-  if(document.getElementById("choixChapeau").innerHTML != "") {
+  // on vide toutes les catégories
+  if(rangerArticle("Chapeau") == 1) {
     estValide = 1;
     prix += 5;
-    var articles = document.getElementById("choixChapeau").children;
-    retirer(articles[0]);
   }
-
-  if(document.getElementById("choixHaut").innerHTML != "") {
+  if(rangerArticle("Haut") == 1) {
     estValide = 1;
     prix += 5;
-    var articles = document.getElementById("choixHaut").children;
-    retirer(articles[0]);
   }
-
-  if(document.getElementById("choixBas").innerHTML != "") {
+  if(rangerArticle("Bas") == 1) {
     estValide = 1;
     prix += 5;
-    var articles = document.getElementById("choixBas").children;
-    retirer(articles[0]);
   }
-
-  if(document.getElementById("choixChaussure").innerHTML != "") {
+  if(rangerArticle("Chaussure") == 1) {
     estValide = 1;
     prix += 5;
-    var articles = document.getElementById("choixChaussure").children;
-    retirer(articles[0]);
   }
-
   if(estValide == 1) {
-    nbFig ++;
+    var indice = figurines.push(prix);
     valeurPanier += prix;
     // On ajouter la figurine dans le panier et on met la valeur du panier à jour
-    document.getElementById("mesFigurines").innerHTML += "<p id='figurine' onclick='supprimerFigurine(this)'>Figurine "+ nbFig +" : " + prix + " €</p>";
+    document.getElementById("mesFigurines").innerHTML += "<p id='figurine" + indice + "' onclick='supprimerFigurine(this)'>Figurine "+ indice +" : " + prix + " €</p>";
     document.getElementById("valeurPanier").innerHTML = "Valeur du Panier : " + valeurPanier + " €";
   } else {
     // On ne peut pas ajouter une figurine vide au panier
@@ -122,14 +71,28 @@ function ajouterFigurine() {
   }
 }
 
+/*Pour chaque catégorie (chapeau, ...) on vérifie si le contenu du div n'est pas nul, on indique alors si la figurine est valide, on augmente le prix et on remet les articles dans la boutique */
+function rangerArticle(categorie) {
+  var estPresent = 0; // variable qui indique si un vétement est bien présent dans la catégorie
+  if(document.getElementById("choix" + categorie).innerHTML != ""){
+    estPresent = 1;
+    var articles = document.getElementById("choix" + categorie).children;
+    retirer(articles[0]);
+  }
+  return(estPresent);
+}
+
 /* Fonction pour supprimer une figurine du panier */
 function supprimerFigurine(figurine) {
- if (prompt("Voulez vous supprimer la figurine ?\n(taper oui pour supprimer)") == "oui") {
+ if (confirm("Voulez vous supprimer cette figurine ?")) {
+   alert("Vous avez supprimé la figurine");
    // on deduit le prix de la figurine dans la valeur du panier
-   valeurPanier -= figurine.innerHTML.substring(figurine.innerHTML.length - 4, figurine.innerHTML.length - 2);
+   valeurPanier -= figurine.getAttribute("id").substring(8, figurine.getAttribute("id").length);
    document.getElementById("valeurPanier").innerHTML = "Valeur du Panier : " + valeurPanier + " €";
    // on supprime la figurine
    document.getElementById("mesFigurines").removeChild(figurine);
+ } else {
+   alert("Vous n'avez pas supprimé la figurine");
  }
 }
 

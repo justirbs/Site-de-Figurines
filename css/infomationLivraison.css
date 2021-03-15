@@ -2,10 +2,48 @@ body{
 background-color: #343a40;
 }
 
-.formulaire p {
-  color: white;
+p {
+  font-family: sans-serif;
+  color: #343a40;
+}
+
+h1 {
+  font-family: sans-serif;
+  color: #343a40;
 }
 
 .formulaire {
   text-align: center;
+  background-color: rgba(229, 229, 229, 0.5);
+  font-size: 15pt;
+  border-radius: 10px;
+}
+
+.bodyFormulaire1 {
+  text-align: center;
+}
+
+.bodyFormulaire2 {
+  display: inline-flex;
+}
+
+.labelFormulaire {
+  text-align: left;
+  margin-right: 1%;
+  width: 100px;
+}
+
+.fieldFormulaire {
+  text-align: left;
+  margin-left: 1%;
+}
+
+.btn {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: #343a40;
+  color: lightgrey;
+  border: none;
+  cursor: pointer;
+  padding: 12px 28px;
 }

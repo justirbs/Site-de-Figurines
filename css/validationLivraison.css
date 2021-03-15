@@ -4,10 +4,25 @@ background-color: #343a40;
 
 .pageValidation {
   margin-top: 10%;
-  color: white;
   text-align: center;
+  background-color: rgba(229, 229, 229, 0.5);
+  font-size: 15pt;
+  border-radius: 10px;
 }
 
 a {
+  color: #343a40;
+  font-family: sans-serif;
+}
+
+a:hover {
   color: white;
+  font-family: sans-serif;
+}
+
+p {
+  font-family: sans-serif;
+  color: #343a40;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

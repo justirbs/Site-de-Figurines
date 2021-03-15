@@ -9,12 +9,30 @@
 	<body>
 
 		<div class="formulaire">
+
+			<h1> Veuillez remplir ce formulaire pour valider votre commande : </h1>
+
+
 			<form id="formulaire" method="get" action="validationLivraison.html">
-				<p>Nom<input type="text" id="nom" name="nom" oninput="verifierFormulaire()"/></p>
-				<p>Prénom<input type="text" id="prenom" name="prenom" oninput="verifierFormulaire()"/></p>
-				<p>Adresse<input type="text" id="adresse" name="adresse" oninput="verifierFormulaire()"/></p>
-				<input type="submit" value="Valider" id="boutonValider" style="visibility: hidden;"/>
+
+				<div class="bodyFormulaire1">
+					<div class="bodyFormulaire2">
+						<div class="labelFormulaire">
+							<p>Nom :</p>
+							<p>Prénom :</p>
+							<p>Adresse :</p>
+						</div>
+						<div class="fieldFormulaire">
+							<p><input type="text" id="nom" name="nom" oninput="verifierFormulaire()"/></p>
+							<p><input type="text" id="prenom" name="prenom" oninput="verifierFormulaire()"/></p>
+							<p><input type="text" id="adresse" name="adresse" oninput="verifierFormulaire()"/></p>
+						</div>
+					</div>
+				</div>
+
+				<input type="submit" value="Valider" id="boutonValider" class="btn" style="visibility: hidden;"/>
 			</form>
+
 		</div>
 
 	<script type="text/javascript" src="js/infomationLivraison.js"></script>
