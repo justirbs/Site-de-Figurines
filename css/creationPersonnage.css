@@ -78,12 +78,22 @@ background-color: #343a40;
   font-size: 10pt;
 }
 
-img {
+.magasins img {
   width: 75px;
+}
+
+.magasins img:hover {
+  transform: translate(-2px,-3px);
+  filter: drop-shadow(2px 3px 8px black);
 }
 
 .choix img {
   width: 150px;
+}
+
+.choix img:hover {
+  transform: translate(-4px,-6px);
+  filter: drop-shadow(4px 6px 10px black);
 }
 
 
@@ -95,6 +105,16 @@ input {
   border: none;
   cursor: pointer;
   padding: 12px 28px;
+}
+
+input:hover {
+  background-color: #444a50;
+}
+
+
+input:active {
+  background-color: #444a50;
+  transform: translateY(2px);
 }
 
 #mesFigurines {

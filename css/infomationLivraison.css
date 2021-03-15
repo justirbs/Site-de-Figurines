@@ -47,3 +47,13 @@ h1 {
   cursor: pointer;
   padding: 12px 28px;
 }
+
+.btn:hover {
+  background-color: #444a50;
+}
+
+
+.btn:active {
+  background-color: #444a50;
+  transform: translateY(2px);
+}
