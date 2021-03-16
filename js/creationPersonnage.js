@@ -1,4 +1,5 @@
 var prixFigurines = []; // tableau qui contient tous les prix des figurines
+var sauvFigurines = []; // tableau qui contient toutes les figurines créées
 var valeurPanier = 0; // valeur du panier
 
 
@@ -19,9 +20,9 @@ function ajouter(image) {
   var nvImage = image.cloneNode(true); // image clonée
   nvImage.setAttribute("onclick", "retirer(this)");
   // id du div où l'on veut déplacer l'image
-  var idDest = "choix" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length);
+  var idDest = "choix" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length - 1);
   // id du div d'où vient l'image
-  var idInit = "magasin" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length);
+  var idInit = "magasin" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length - 1);
   document.getElementById(idDest).appendChild(nvImage);
   document.getElementById(idInit).removeChild(image);
   // on modifie l'attribu onclick des autres articles du magasin pour qu'on ne puisse pas en ajouter d'autres
@@ -35,9 +36,9 @@ function retirer(image) {
   var nvImage = image.cloneNode(true); // image clonée
   nvImage.setAttribute("onclick", "ajouter(this)");
   // id du div où l'on veut déplacer l'image
-  var idDest = "magasin" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length);
+  var idDest = "magasin" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length - 1);
   // id du div d'où vient l'image
-  var idInit = "choix" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length);
+  var idInit = "choix" + nvImage.getAttribute("id").substring(5, nvImage.getAttribute("id").length - 1);
   document.getElementById(idDest).appendChild(nvImage);
   document.getElementById(idInit).removeChild(image);
   // on modifie l'attribu onclick des autres articles du magasins pour pouvoir les ajouter à nouveau
@@ -48,7 +49,7 @@ function retirer(image) {
 
 /* Fonction pour ajouter une figurine au panier */
 function ajouterFigurine() {
-  // on vide toutes les catégories
+  // on range tous les articles
   var chapeau = rangerArticle("Chapeau");
   var haut = rangerArticle("Haut");
   var bas = rangerArticle("Bas");
@@ -58,12 +59,14 @@ function ajouterFigurine() {
   // on calcule le prix
   var prix = calculPrix(figurine);
   if(prix != 0) {
-    //le prix vaut initialement 25€
+    // le prix vaut initialement 25€
     prix += 25;
+    // on stocke les infos de notre figurine
+    var nbFigurine = sauvFigurines.push(figurine);
     var indice = prixFigurines.push(prix);
     valeurPanier += prix;
     // On ajouter la figurine dans le panier et on met la valeur du panier à jour
-    document.getElementById("mesFigurines").innerHTML += "<p id='figurine" + indice + "' onclick='supprimerFigurine(this)'>Figurine "+ indice +" : " + prix + " €</p>";
+    document.getElementById("mesFigurines").innerHTML += "<p id='figurine" + indice + "' onclick='modifierFigurine(this)'>Figurine "+ indice +" : " + prix + " €</p>";
     document.getElementById("valeurPanier").innerHTML = "Valeur du Panier : " + valeurPanier + " €";
   } else {
     // On ne peut pas ajouter une figurine vide au panier
@@ -100,17 +103,68 @@ function rangerArticle(categorie) {
 
 
 /* Fonction pour supprimer une figurine du panier */
-function supprimerFigurine(figurine) {
- if (confirm("Voulez vous supprimer cette figurine ?")) {
-   alert("Vous avez supprimé la figurine");
-   // on deduit le prix de la figurine dans la valeur du panier
-   valeurPanier -= prixFigurines[figurine.getAttribute("id").substring(8, figurine.getAttribute("id").length) - 1];
-   document.getElementById("valeurPanier").innerHTML = "Valeur du Panier : " + valeurPanier + " €";
-   // on supprime la figurine
-   document.getElementById("mesFigurines").removeChild(figurine);
- } else {
-   alert("Vous n'avez pas supprimé la figurine");
- }
+function supprimerFigurine(figurine, nb) {
+  if (nb == 0) {
+    // dans ce cas on modifie la figurine, selon l'envie de l'utilisateur
+    if (confirm("Voulez vous supprimer cette figurine ?")) {
+      alert("Vous avez supprimé la figurine");
+      // on deduit le prix de la figurine dans la valeur du panier
+      valeurPanier -= prixFigurines[figurine.getAttribute("id").substring(8, figurine.getAttribute("id").length) - 1];
+      document.getElementById("valeurPanier").innerHTML = "Valeur du Panier : " + valeurPanier + " €";
+      // on supprime la figurine
+      document.getElementById("mesFigurines").removeChild(figurine);
+    } else {
+      alert("Vous n'avez pas supprimé la figurine");
+    }
+  } else {
+    // dans ce cas, on modifie automatiquement la figurine
+    valeurPanier -= prixFigurines[figurine.getAttribute("id").substring(8, figurine.getAttribute("id").length) - 1];
+    document.getElementById("valeurPanier").innerHTML = "Valeur du Panier : " + valeurPanier + " €";
+    document.getElementById("mesFigurines").removeChild(figurine);
+  }
+}
+
+
+/* Fonction pour modifier une figurine du panier */
+function modifierFigurine(figurine) {
+  if (confirm("Voulez vous modifier cette figurine ?")) {
+    // on doit d'abord retirer tous ce qu'il y a dans l'espace "choix"
+    viderChoix();
+    // on récupère la bonne sauvegarde
+    var figurineModif = sauvFigurines[figurine.getAttribute("id").substring(8, figurine.getAttribute("id").length) - 1];
+    // il faut ensuite replacer les articles de la figurine dans l'espace "choix"
+    if(figurineModif[0] != 0) {
+      ajouter(document.getElementById("imageChapeau" + figurineModif[0]));
+    }
+    if(figurineModif[1] != 0) {
+      ajouter(document.getElementById("imageHaut" + figurineModif[1]));
+    }
+    if(figurineModif[2] != 0) {
+      ajouter(document.getElementById("imageBas" + figurineModif[2]));
+    }
+    if(figurineModif[3] != 0) {
+      ajouter(document.getElementById("imageChaussure" + figurineModif[3]));
+    }
+    if(figurineModif[4] != 0) {
+      ajouter(document.getElementById("imagePokeball" + figurineModif[4]));
+    }
+    // on supprime l'ancienne figurine
+    supprimerFigurine(figurine, 1);
+  } else {
+    supprimerFigurine(figurine, 0);
+  }
+}
+
+
+
+/* Fonction pour vider l'espace "choix" */
+function viderChoix() {
+  // on vide chaque catégorie
+  var chapeau = rangerArticle("Chapeau");
+  var haut = rangerArticle("Haut");
+  var bas = rangerArticle("Bas");
+  var chaussure = rangerArticle("Chaussure");
+  var pokeball = rangerArticle("Pokeball");
 }
 
 

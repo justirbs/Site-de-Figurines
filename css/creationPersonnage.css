@@ -153,6 +153,12 @@ input:active {
   margin-right: 5px;
 }
 
+.mesFigurines p:hover {
+  margin-left: 5px;
+  margin-right: 5px;
+  color: white;
+}
+
 h1 {
   font-family: sans-serif;
   color: #343a40;
