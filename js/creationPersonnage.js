@@ -1,4 +1,4 @@
-var figurines = []; // tableau qui contient toutes les figurines
+var prixFigurines = []; // tableau qui contient tous les prix des figurines
 var valeurPanier = 0; // valeur du panier
 
 
@@ -48,31 +48,19 @@ function retirer(image) {
 
 /* Fonction pour ajouter une figurine au panier */
 function ajouterFigurine() {
-  estValide = 0; // variable qui indique si la figurine est vide ou non
-  var prix = 25; // le prix de la figurine (il vaut initialement 25€)
   // on vide toutes les catégories
-  if(rangerArticle("Chapeau") == 1) {
-    estValide = 1;
-    prix += 5;
-  }
-  if(rangerArticle("Haut") == 1) {
-    estValide = 1;
-    prix += 5;
-  }
-  if(rangerArticle("Bas") == 1) {
-    estValide = 1;
-    prix += 5;
-  }
-  if(rangerArticle("Chaussure") == 1) {
-    estValide = 1;
-    prix += 5;
-  }
-  if(rangerArticle("Pokeball") == 1) {
-    estValide = 1;
-    prix += 5;
-  }
-  if(estValide == 1) {
-    var indice = figurines.push(prix);
+  var chapeau = rangerArticle("Chapeau");
+  var haut = rangerArticle("Haut");
+  var bas = rangerArticle("Bas");
+  var chaussure = rangerArticle("Chaussure");
+  var pokeball = rangerArticle("Pokeball");
+  var figurine = [chapeau, haut, bas, chaussure, pokeball];
+  // on calcule le prix
+  var prix = calculPrix(figurine);
+  if(prix != 0) {
+    //le prix vaut initialement 25€
+    prix += 25;
+    var indice = prixFigurines.push(prix);
     valeurPanier += prix;
     // On ajouter la figurine dans le panier et on met la valeur du panier à jour
     document.getElementById("mesFigurines").innerHTML += "<p id='figurine" + indice + "' onclick='supprimerFigurine(this)'>Figurine "+ indice +" : " + prix + " €</p>";
@@ -85,15 +73,28 @@ function ajouterFigurine() {
 
 
 
+/* Fonction qui calcul le prix de la figurine*/
+function calculPrix(figurine) {
+  var prix = 0; // si la figurine est vide, le prix vaut 0
+  for(i=0; i<figurine.length; i++){
+    if(figurine[i] != 0) {
+      prix += 5;
+    }
+  }
+  return(prix);
+}
+
+
+
 /*Pour chaque catégorie (chapeau, ...) on vérifie si le contenu du div n'est pas nul, on indique alors si la figurine est valide, on augmente le prix et on remet les articles dans la boutique */
 function rangerArticle(categorie) {
-  var estPresent = 0; // variable qui indique si un vétement est bien présent dans la catégorie
+  var numArticle = 0; // variable qui indique le numéro de l'article (1, 2, ..), si il n'y a pas d'article, il vaut 0
   if(document.getElementById("choix" + categorie).innerHTML != ""){
-    estPresent = 1;
     var articles = document.getElementById("choix" + categorie).children;
+    numArticle = articles[0].getAttribute("alt").substring(articles[0].getAttribute("alt").length - 1, articles[0].getAttribute("alt").length);
     retirer(articles[0]);
   }
-  return(estPresent);
+  return(numArticle);
 }
 
 
@@ -103,7 +104,7 @@ function supprimerFigurine(figurine) {
  if (confirm("Voulez vous supprimer cette figurine ?")) {
    alert("Vous avez supprimé la figurine");
    // on deduit le prix de la figurine dans la valeur du panier
-   valeurPanier -= figurine.getAttribute("id").substring(8, figurine.getAttribute("id").length);
+   valeurPanier -= prixFigurines[figurine.getAttribute("id").substring(8, figurine.getAttribute("id").length) - 1];
    document.getElementById("valeurPanier").innerHTML = "Valeur du Panier : " + valeurPanier + " €";
    // on supprime la figurine
    document.getElementById("mesFigurines").removeChild(figurine);
