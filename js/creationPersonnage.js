@@ -1,6 +1,8 @@
 var figurines = []; // tableau qui contient toutes les figurines
 var valeurPanier = 0; // valeur du panier
 
+
+
 /* Fonction pour ajouter un attribut onclick */
 function ajouterOnClick(magasin, fonction) {
   // On modifie l'attrivu onclick de tous les éléments d'un même magasin
@@ -9,6 +11,8 @@ function ajouterOnClick(magasin, fonction) {
     images[i].setAttribute("onclick", fonction);
   }
 }
+
+
 
 /* Fonction pour ajouter un article dans les "choix" */
 function ajouter(image) {
@@ -24,6 +28,8 @@ function ajouter(image) {
   ajouterOnClick(idInit, "");
 }
 
+
+
 /* Fonction pour retirer un articles de "choix" */
 function retirer(image) {
   var nvImage = image.cloneNode(true); // image clonée
@@ -37,6 +43,8 @@ function retirer(image) {
   // on modifie l'attribu onclick des autres articles du magasins pour pouvoir les ajouter à nouveau
   ajouterOnClick(idDest, "ajouter(this)");
 }
+
+
 
 /* Fonction pour ajouter une figurine au panier */
 function ajouterFigurine() {
@@ -59,6 +67,10 @@ function ajouterFigurine() {
     estValide = 1;
     prix += 5;
   }
+  if(rangerArticle("Pokeball") == 1) {
+    estValide = 1;
+    prix += 5;
+  }
   if(estValide == 1) {
     var indice = figurines.push(prix);
     valeurPanier += prix;
@@ -71,6 +83,8 @@ function ajouterFigurine() {
   }
 }
 
+
+
 /*Pour chaque catégorie (chapeau, ...) on vérifie si le contenu du div n'est pas nul, on indique alors si la figurine est valide, on augmente le prix et on remet les articles dans la boutique */
 function rangerArticle(categorie) {
   var estPresent = 0; // variable qui indique si un vétement est bien présent dans la catégorie
@@ -81,6 +95,8 @@ function rangerArticle(categorie) {
   }
   return(estPresent);
 }
+
+
 
 /* Fonction pour supprimer une figurine du panier */
 function supprimerFigurine(figurine) {
@@ -95,6 +111,8 @@ function supprimerFigurine(figurine) {
    alert("Vous n'avez pas supprimé la figurine");
  }
 }
+
+
 
 /* Fonction qui vérifie si on peut valider le panier */
 function validerPanier() {

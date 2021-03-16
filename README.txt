@@ -3,6 +3,8 @@ Présentation du projet :
   Le projet est une boutique de figurines sous forme de site web.
   Je l'ai personnalisé selon le thème "Pokémon", le titre et certaines images font donc référence à cet univers.
 
+  Comme bonus j'ai ajouter la possibilité de choisir des pokeball en guise d'outils/armes.
+
 
 Arborescence du projet :
 
