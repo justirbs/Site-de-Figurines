@@ -1,11 +1,13 @@
 body{
-background-color: #343a40;
+  background-color: #343a40;
+  background-image: url("../img/fond.png");
+  background-size: cover;
 }
 
 .pageValidation {
   margin-top: 10%;
   text-align: center;
-  background-color: rgba(229, 229, 229, 0.5);
+  background-color: rgba(229, 229, 229, 0.9);
   font-size: 15pt;
   border-radius: 10px;
 }
