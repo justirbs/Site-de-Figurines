@@ -6,6 +6,9 @@ Présentation du projet :
   Vous pouvez retrouver ce projet en ligne à l'adresse : https://my-pokemon-pop.justine-ribas.com
   Il sera disponible jusqu'au vacances d'été 2021.
 
+  Vous pouvez aussi le retrouver sur gitLab grâce à l'url : https://gitlab.etude.eisti.fr/ribasjusti/devweb_tp_note_client
+
+
 
 Arborescence du projet :
 
@@ -30,7 +33,7 @@ Bonus :
   -Possibilité de modifier une figurine du panier
   Les figurines sont toutes sauvegardées, en cliquant dessus on peut les modifier.
   Ainsi, l'espace "choix" se remplie des vêtements de la figurine.
-  Dans le panier, la figurine se se supprime automatiquement.
+  Dans le panier, la figurine se se supprime automatiquement. L'utilisateur est donc libre de l'ajouter de nouveau au panier avec les nouvelles modifications ou alors de l'abandonner.
 
   -Chaque article a son propre prix
   Il est indiqué lorsqu'on passe la souris dessus.
