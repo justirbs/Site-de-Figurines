@@ -2,7 +2,11 @@ var prixFigurines = []; // tableau qui contient tous les prix des figurines
 var sauvFigurines = []; // tableau qui contient toutes les figurines créées
 var valeurPanier = 0; // valeur du panier
 
-
+var prixChapeau = [5, 5, 5, 10, 7, 7]; // tableau qui contient les prix des chapeaux
+var prixHaut = [7, 7, 7, 10, 6, 6]; // tableau qui contient les prix des hauts
+var prixBas = [10, 10, 5, 5, 7, 7]; // tableau qui contient les prix des bas
+var prixChaussure = [10, 5, 5, 5, 5, 10]; // tableau qui contient les prix des chaussures
+var prixPokeball = [5, 5, 5]; // tableau qui contient les prix des pokeball
 
 /* Fonction pour ajouter un attribut onclick */
 function ajouterOnClick(magasin, fonction) {
@@ -81,7 +85,19 @@ function calculPrix(figurine) {
   var prix = 0; // si la figurine est vide, le prix vaut 0
   for(i=0; i<figurine.length; i++){
     if(figurine[i] != 0) {
-      prix += 5;
+      switch (i) {
+        case 0: prix += prixChapeau[figurine[i] - 1];
+          break;
+        case 1: prix += prixHaut[figurine[i] - 1];
+          break;
+        case 2: prix += prixBas[figurine[i] - 1];
+          break;
+        case 3: prix += prixChaussure[figurine[i] - 1];
+          break;
+        case 4: prix += prixPokeball[figurine[i] - 1];
+          break;
+        default: break;
+      }
     }
   }
   return(prix);
@@ -177,5 +193,58 @@ function validerPanier() {
     document.location.href="infomationLivraison.html";
   } else {
     alert("Vous ne pouvez pas valider un panier vide !");
+  }
+}
+
+
+/* Fonction qui affiche le prix d'un article quand on passe la souris dessus */
+function afficherPrix(image) {
+  // on cherche le type de l'article (chapeau, haut, ...)
+  var article = image.getAttribute("id").substring(5, image.getAttribute("id").length - 1);
+  // oncherche le numéro de l'article
+  var indice = image.getAttribute("id").substring(image.getAttribute("id").length - 1, image.getAttribute("id").length) - 1;
+  switch (article) {
+    case "Chapeau":
+      document.getElementById("prixChapeau").innerHTML = "Prix : " + prixChapeau[indice] + " €";
+      break;
+    case "Haut":
+      document.getElementById("prixHaut").innerHTML = "Prix : " + prixHaut[indice] + " €";
+      break;
+    case "Bas":
+      document.getElementById("prixBas").innerHTML = "Prix : " + prixBas[indice] + " €";
+      break;
+    case "Chaussure":
+      document.getElementById("prixChaussure").innerHTML = "Prix : " + prixChaussure[indice] + " €";
+      break;
+    case "Pokeball":
+      document.getElementById("prixPokeball").innerHTML = "Prix : " + prixPokeball[indice] + " €";
+      break;
+    default: break;
+  }
+}
+
+
+
+/* Fonction qui retire le prix d'un article quand on enlêve la souris */
+function retirerPrix(image) {
+  // on cherche le type de l'article (chapeau, haut, ...)
+  var article = image.getAttribute("id").substring(5, image.getAttribute("id").length - 1);
+  switch (article) {
+    case "Chapeau":
+      document.getElementById("prixChapeau").innerHTML = "Prix : €";
+      break;
+    case "Haut":
+      document.getElementById("prixHaut").innerHTML = "Prix : €";
+      break;
+    case "Bas":
+      document.getElementById("prixBas").innerHTML = "Prix : €";
+      break;
+    case "Chaussure":
+      document.getElementById("prixChaussure").innerHTML = "Prix : €";
+      break;
+    case "Pokeball":
+      document.getElementById("prixPokeball").innerHTML = "Prix : €";
+      break;
+    default: break;
   }
 }

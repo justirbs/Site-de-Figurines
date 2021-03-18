@@ -17,7 +17,7 @@
 			  <h1>Présentation</h1>
 				<h3>Créez le meilleur dresseur!</h3>
 			  <p>Toutes les figurines coûtent 25€ sans accessoires</p>
-			  <p>Un accessoire coute 5€</p>
+			  <p>Chaque accessoire a son propre prix</p>
 			  <p>Cliquez sur l'image pour la supprimer du panier</p>
 			</div>
 
@@ -35,54 +35,72 @@
 
 		<div class="page">
 
-			<div class="magasins">
+			<div class="mesMagasins">
 
-				<div id="magasinChapeau">
+				<div class="magasin">
 					<h3>Mes chapeaux</h3>
-					<img alt="chapeau1" id="imageChapeau1" src="img/chapeau1.png" onclick="ajouter(this)">
-					<img alt="chapeau2" id="imageChapeau2" src="img/chapeau2.png" onclick="ajouter(this)">
-					<img alt="chapeau3" id="imageChapeau3" src="img/chapeau3.png" onclick="ajouter(this)">
-					<img alt="chapeau4" id="imageChapeau4" src="img/chapeau4.png" onclick="ajouter(this)">
-					<img alt="chapeau5" id="imageChapeau5" src="img/chapeau5.png" onclick="ajouter(this)">
-					<img alt="chapeau6" id="imageChapeau6" src="img/chapeau6.png" onclick="ajouter(this)">
+					<div id="magasinChapeau">
+						<img alt="chapeau1" id="imageChapeau1" src="img/chapeau1.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="chapeau2" id="imageChapeau2" src="img/chapeau2.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="chapeau3" id="imageChapeau3" src="img/chapeau3.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="chapeau4" id="imageChapeau4" src="img/chapeau4.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="chapeau5" id="imageChapeau5" src="img/chapeau5.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="chapeau6" id="imageChapeau6" src="img/chapeau6.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+					</div>
+					<p id="prixChapeau">Prix : €</p>
 				</div>
 
-				<div id="magasinHaut">
+				<div class="magasin">
 					<h3>Mes vetementHauts</h3>
-					<img alt="vetementHaut1" id="imageHaut1" src="img/vetementHaut1.png" onclick="ajouter(this)">
-					<img alt="vetementHaut2" id="imageHaut2" src="img/vetementHaut2.png" onclick="ajouter(this)">
-					<img alt="vetementHaut3" id="imageHaut3" src="img/vetementHaut3.png" onclick="ajouter(this)">
-					<img alt="vetementHaut4" id="imageHaut4" src="img/vetementHaut4.png" onclick="ajouter(this)">
-					<img alt="vetementHaut5" id="imageHaut5" src="img/vetementHaut5.png" onclick="ajouter(this)">
-					<img alt="vetementHaut6" id="imageHaut6" src="img/vetementHaut6.png" onclick="ajouter(this)">
+					<div id="magasinHaut">
+						<img alt="vetementHaut1" id="imageHaut1" src="img/vetementHaut1.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="vetementHaut2" id="imageHaut2" src="img/vetementHaut2.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="vetementHaut3" id="imageHaut3" src="img/vetementHaut3.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="vetementHaut4" id="imageHaut4" src="img/vetementHaut4.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="vetementHaut5" id="imageHaut5" src="img/vetementHaut5.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="vetementHaut6" id="imageHaut6" src="img/vetementHaut6.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+					</div>
+					<p id="prixHaut">Prix : €</p>
 				</div>
 
-				<div id="magasinBas">
+				<div class="magasin">
 					<h3>Mes vetementBas</h3>
-					<img alt="vetementBas1" id="imageBas1" src="img/vetementBas1.png" onclick="ajouter(this)">
-					<img alt="vetementBas2" id="imageBas2" src="img/vetementBas2.png" onclick="ajouter(this)">
-					<img alt="vetementBas3" id="imageBas3" src="img/vetementBas3.png" onclick="ajouter(this)">
-					<img alt="vetementBas4" id="imageBas4" src="img/vetementBas4.png" onclick="ajouter(this)">
-					<img alt="vetementBas5" id="imageBas5" src="img/vetementBas5.png" onclick="ajouter(this)">
-					<img alt="vetementBas6" id="imageBas6" src="img/vetementBas6.png" onclick="ajouter(this)">
+					<div id="magasinBas">
+						<img alt="vetementBas1" id="imageBas1" src="img/vetementBas1.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="vetementBas2" id="imageBas2" src="img/vetementBas2.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="vetementBas3" id="imageBas3" src="img/vetementBas3.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="vetementBas4" id="imageBas4" src="img/vetementBas4.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="vetementBas5" id="imageBas5" src="img/vetementBas5.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="vetementBas6" id="imageBas6" src="img/vetementBas6.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+					</div>
+					<p id="prixBas">Prix : €</p>
 				</div>
 
-				<div id="magasinChaussure">
+				<div class="magasin">
 					<h3>Mes chaussures</h3>
-					<img alt="chaussure1" id="imageChaussure1" src="img/chaussure1.png" onclick="ajouter(this)">
-					<img alt="chaussure2" id="imageChaussure2" src="img/chaussure2.png" onclick="ajouter(this)">
-					<img alt="chaussure3" id="imageChaussure3" src="img/chaussure3.png" onclick="ajouter(this)">
-					<img alt="chaussure4" id="imageChaussure4" src="img/chaussure4.png" onclick="ajouter(this)">
-					<img alt="chaussure5" id="imageChaussure5" src="img/chaussure5.png" onclick="ajouter(this)">
-					<img alt="chaussure6" id="imageChaussure6" src="img/chaussure6.png" onclick="ajouter(this)">
+					<div id="magasinChaussure">
+						<img alt="chaussure1" id="imageChaussure1" src="img/chaussure1.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="chaussure2" id="imageChaussure2" src="img/chaussure2.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="chaussure3" id="imageChaussure3" src="img/chaussure3.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="chaussure4" id="imageChaussure4" src="img/chaussure4.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="chaussure5" id="imageChaussure5" src="img/chaussure5.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="chaussure6" id="imageChaussure6" src="img/chaussure6.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+					</div>
+					<p id="prixChaussure">Prix : €</p>
 				</div>
 
-				<div id="magasinPokeball">
+				<div class="magasin">
 					<h3>Mes pokeball</h3>
-					<img alt="pokeball1" id="imagePokeball1" src="img/pokeball1.png" onclick="ajouter(this)">
-					<img alt="pokeball2" id="imagePokeball2" src="img/pokeball2.png" onclick="ajouter(this)">
-					<img alt="pokeball3" id="imagePokeball3" src="img/pokeball3.png" onclick="ajouter(this)">
+					<div id="magasinPokeball">
+						<img alt="pokeball1" id="imagePokeball1" src="img/pokeball1.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="pokeball2" id="imagePokeball2" src="img/pokeball2.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+						<img alt="pokeball3" id="imagePokeball3" src="img/pokeball3.png" onclick="ajouter(this)" onmouseover="afficherPrix(this)" onmouseout="retirerPrix(this)">
+					</div>
+					<p id="prixPokeball">Prix : €</p>
 				</div>
+
+
+
 			</div>
 
 

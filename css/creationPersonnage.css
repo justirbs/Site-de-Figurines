@@ -17,9 +17,6 @@ background-color: #343a40;
   width: 100%;
 }
 
-.magasins {
-  width: 100%;
-}
 
 #presentation {
   text-align: center;
@@ -38,7 +35,11 @@ background-color: #343a40;
   font-size: 10pt;
 }
 
-#magasinChapeau {
+.mesMagasins {
+  width: 100%;
+}
+
+.magasin{
   text-align: center;
   margin-bottom:1%;
   background-color: rgba(229, 229, 229, 0.5);
@@ -46,37 +47,6 @@ background-color: #343a40;
   border-radius: 10px;
 }
 
-#magasinHaut {
-  text-align: center;
-  margin-bottom:1%;
-  background-color: rgba(229, 229, 229, 0.5);
-  font-size: 10pt;
-  border-radius: 10px;
-}
-
-#magasinBas {
-  text-align: center;
-  margin-bottom:1%;
-  background-color: rgba(229, 229, 229, 0.5);
-  font-size: 10pt;
-  border-radius: 10px;
-}
-
-#magasinChaussure {
-  text-align: center;
-  margin-bottom:1%;
-  background-color: rgba(229, 229, 229, 0.5);
-  font-size: 10pt;
-  border-radius: 10px;
-}
-
-#magasinPokeball {
-  text-align: center;
-  margin-bottom:1%;
-  background-color: rgba(229, 229, 229, 0.5);
-  font-size: 10pt;
-  border-radius: 10px;
-}
 
 #choix {
   text-align: center;
@@ -90,11 +60,11 @@ background-color: #343a40;
   filter: drop-shadow(2px 3px 8px black);
 }
 
-.magasins img {
+.mesMagasins img {
   width: 75px;
 }
 
-.magasins img:hover {
+.mesMagasins img:hover {
   transform: translate(-2px,-3px);
   filter: drop-shadow(2px 3px 8px black);
 }

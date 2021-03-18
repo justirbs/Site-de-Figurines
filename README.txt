@@ -25,3 +25,6 @@ Bonus :
   Les figurines sont toutes sauvegardées, en cliquant dessus on peut les modifier.
   Ainsi, l'espace "choix" se remplie des vêtements de la figurine.
   Dans le panier, la figurine se se supprime automatiquement.
+
+  -Chaque article a son propre prix
+  Il est indiqué lorsqu'on passe la souris dessus.
