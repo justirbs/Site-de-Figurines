@@ -10,7 +10,7 @@ var prixPokeball = [5, 5, 5]; // tableau qui contient les prix des pokeball
 
 /* Fonction pour ajouter un attribut onclick */
 function ajouterOnClick(magasin, fonction) {
-  // On modifie l'attrivu onclick de tous les éléments d'un même magasin
+  // On modifie l'attribut onclick de tous les éléments d'un même magasin
   var images = document.getElementById(magasin).children;
   for (var i = 0 ; i < images.length ; i++){
     images[i].setAttribute("onclick", fonction);
