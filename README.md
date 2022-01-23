@@ -8,7 +8,7 @@
   Vous pouvez retrouver ce projet en ligne à l'adresse : https://my-pokemon-pop.justine-ribas.com
   Il sera au moins disponible jusqu'au vacances d'été 2021.
 
-  Vous pouvez aussi le retrouver sur gitLab grâce à l'url : https://gitlab.etude.eisti.fr/ribasjusti/devweb_tp_note_client
+  Vous pouvez aussi le retrouver sur gitHub grâce à l'url : https://github.com/justirbs/Site-de-Figurines
 
 
 
