@@ -1,16 +1,18 @@
-Présentation du projet :
+# Site de figurines
+
+## Présentation du projet :
 
   Le projet est une boutique de figurines sous forme de site web.
   Je l'ai personnalisé selon le thème "Pokémon", le titre et certaines images font donc référence à cet univers.
 
   Vous pouvez retrouver ce projet en ligne à l'adresse : https://my-pokemon-pop.justine-ribas.com
-  Il sera disponible jusqu'au vacances d'été 2021.
+  Il sera au moins disponible jusqu'au vacances d'été 2021.
 
   Vous pouvez aussi le retrouver sur gitLab grâce à l'url : https://gitlab.etude.eisti.fr/ribasjusti/devweb_tp_note_client
 
 
 
-Arborescence du projet :
+## Arborescence du projet :
 
   -Dossier "css" : là où se trouvent tous les fichiers .css
   chaque fichier .css porte le même nom que le fichier .html auquel il est associé
@@ -26,7 +28,7 @@ Arborescence du projet :
 
 
 
-Bonus :
+## Bonus :
 
   -Possibilité de choisir des pokeball en guise d'outils/armes.
 
